@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32804.467
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EjercicioPresentismo.InterfazGrafica", "EjercicioPresentismo.InterfazGrafica\EjercicioPresentismo.InterfazGrafica.csproj", "{DCBB002E-2FA1-4608-A613-27FE6CD53353}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EjercicioPresentismo.Dominio", "EjercicioPresentismo.Dominio\EjercicioPresentismo.Dominio.csproj", "{B6932180-4A7B-46CB-8137-B17B88B59FCC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DCBB002E-2FA1-4608-A613-27FE6CD53353}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DCBB002E-2FA1-4608-A613-27FE6CD53353}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DCBB002E-2FA1-4608-A613-27FE6CD53353}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DCBB002E-2FA1-4608-A613-27FE6CD53353}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6932180-4A7B-46CB-8137-B17B88B59FCC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6932180-4A7B-46CB-8137-B17B88B59FCC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6932180-4A7B-46CB-8137-B17B88B59FCC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6932180-4A7B-46CB-8137-B17B88B59FCC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FB9D4759-CF6C-4A05-865C-649F2CE80C5F}
+	EndGlobalSection
+EndGlobal
