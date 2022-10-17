@@ -41,11 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entidades\Alumno.cs" />
+    <Compile Include="Entidades\Abstractas\Alumno.cs" />
     <Compile Include="Entidades\AlumnoOyente.cs" />
     <Compile Include="Entidades\AlumnoRegular.cs" />
     <Compile Include="Entidades\Asistencia.cs" />
-    <Compile Include="Entidades\Persona.cs" />
+    <Compile Include="Entidades\Abstractas\Persona.cs" />
     <Compile Include="Entidades\Preceptor.cs" />
     <Compile Include="Entidades\Presentismo.cs" />
     <Compile Include="Excepciones\AsistenciaExistenteEseDiaException.cs" />

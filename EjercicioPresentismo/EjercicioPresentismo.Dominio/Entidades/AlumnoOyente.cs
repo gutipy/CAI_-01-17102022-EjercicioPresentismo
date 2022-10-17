@@ -6,7 +6,18 @@ using System.Threading.Tasks;
 
 namespace EjercicioPresentismo.Dominio.Entidades
 {
-    internal class AlumnoOyente
+    public sealed class AlumnoOyente : Alumno
     {
+        //Atributos
+
+        //Constructores
+        public AlumnoOyente(string nombre, string apellido, int registro) : base(nombre, apellido, registro)
+        {
+
+        }
+
+        //Propiedades
+
+        //Funciones-Métodos
     }
 }

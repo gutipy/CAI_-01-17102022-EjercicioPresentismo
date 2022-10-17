@@ -6,7 +6,39 @@ using System.Threading.Tasks;
 
 namespace EjercicioPresentismo.Dominio.Entidades
 {
-    internal class Asistencia
+    public class Asistencia
     {
+        //Atributos
+        private string _fechaReferencia;
+        private DateTime _fechaHoraReal;
+        private Preceptor _preceptor;
+        private Alumno _alumno;
+        private bool _estaPresente;
+
+        //Constructores
+        public Asistencia(string fechaReferencia, Preceptor preceptor, Alumno alumno, bool estaPresente)
+        {
+            _fechaReferencia = fechaReferencia;
+            _fechaHoraReal = DateTime.UtcNow;
+            _preceptor = preceptor;
+            _alumno = alumno;
+            _estaPresente = estaPresente;
+        }
+
+        //Propiedades
+        public string FechaReferencia { get => _fechaReferencia; }
+
+        //Funciones-Métodos
+        public override string ToString()
+        {
+            return string.Format(
+                "{0} {1} {2} está presente por {3} registrado el {4}",
+                _fechaReferencia,
+                _alumno.Display(),
+                _estaPresente ? "SÍ" : "NO",
+                _fechaHoraReal.ToString()
+                )
+                ;
+        }
     }
 }

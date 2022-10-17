@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace EjercicioPresentismo.Dominio.Excepciones
 {
-    internal class SinAlumnosRegistradosException
+    public class SinAlumnosRegistradosException : Exception
     {
+        public SinAlumnosRegistradosException() : base("No se encuentran alumnos registrados en el Sistema, intente nuevamente.")
+        {
+
+        }
     }
 }

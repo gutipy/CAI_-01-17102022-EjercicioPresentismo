@@ -6,24 +6,24 @@ using System.Threading.Tasks;
 
 namespace EjercicioPresentismo.Dominio.Entidades
 {
-    public class Preceptor : Persona
+    public abstract class Alumno : Persona
     {
         //Atributos
-        private int _legajo;
+        private int _registro;
 
         //Constructores
-        public Preceptor(string nombre, string apellido, int legajo) : base(nombre, apellido)
+        public Alumno(string nombre, string apellido, int registro) : base(nombre, apellido)
         {
-            _legajo = legajo;
+            _registro = registro;
         }
 
         //Propiedades
-        public int Legajo { get => _legajo; }
+        public int Registro { get => _registro; }
 
         //Funciones-Métodos
         internal override string Display()
         {
-            return String.Format("{0} - {1}", Apellido, _legajo);
+            return String.Format("{0} ({1})", Nombre, _registro);
         }
     }
 }
