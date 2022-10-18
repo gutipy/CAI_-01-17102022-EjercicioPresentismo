@@ -23,12 +23,20 @@ namespace EjercicioPresentismo.Dominio.Entidades
             _alumnos = new List<Alumno>();
             _asistencias = new List<Asistencia>();
             _fechas = new List<string>();
+
+            _alumnos.Add(new AlumnoRegular("Carlos", "Juarez", 123, "cjua@gmail.com"));
+            _alumnos.Add(new AlumnoRegular("Carla", "Jaime", 124, "cjai@gmail.com"));
+            _alumnos.Add(new AlumnoOyente("Ramona", "Vals", 320));
+            _alumnos.Add(new AlumnoOyente("Alejandro", "Medina", 321));
+
+            _preceptores.Add(new Preceptor("Jorgelina", "Ramos", 5));
+
         }
 
         //Propiedades
         public List<Preceptor> Preceptores { get => _preceptores; }
         public List<Alumno> Alumnos { get => _alumnos; }
-        public List<Asistencia> Asistencias { get => _asistencias; }
+        public List<Asistencia> Asistencias { get => _asistencias; set => _asistencias = value; }
         public List<string> Fechas { get => _fechas; }
 
         //Funciones-Métodos
@@ -84,29 +92,57 @@ namespace EjercicioPresentismo.Dominio.Entidades
             }
         }
 
-        public void AgregarAsistencia(List<Asistencia> _asistencias)
+        public void AgregarAsistencia(List<Asistencia> _asistenciasAAgregar, string _fecha)
         {
-            if (_asistencias == null || _asistencias.Count == 0)
+            if (_asistenciasAAgregar == null || _asistenciasAAgregar.Count == 0)
             {
                 throw new Exception("No hay asistencias para agregar");
             }
     
-            else if (_asistencias.Count != this.GetCantidadAlumnosRegulares())
+            else if (_asistenciasAAgregar.Count != this.GetCantidadAlumnosRegulares())
             {
                 throw new AsistenciaInconsistenteException();
             }
                 
-            else if (AsistenciaRegistrada(_asistencias.First().FechaReferencia))
+            else if (AsistenciaRegistrada(_asistenciasAAgregar.First().FechaReferencia))
             {
                 throw new AsistenciaExistenteEseDiaException();
             }
 
             else
             {
-                this._asistencias.AddRange(_asistencias);
+                _asistencias.AddRange(_asistenciasAAgregar);
+                _fechas.Add(_fecha);
             }    
+        }
 
-            
+        public List<Asistencia> GetAsistenciasPorFecha(string _fecha)
+        {
+            //Declaración de variables
+            List<Asistencia> _asistenciasPorFecha = new List<Asistencia>();
+
+            if (_asistencias.Count == 0)
+            {
+                throw new Exception("No se encuentra ninguna asistencia registrada en el Sistema.");
+            }
+
+            else if (_asistencias.Find(a => a.FechaReferencia == _fecha) == null)
+            {
+                throw new Exception("No hay ninguna asistencia registrada en la fecha " + _fecha);
+            }
+
+            else
+            {
+                foreach(Asistencia a in _asistencias)
+                {
+                    if (a.FechaReferencia == _fecha)
+                    {
+                        _asistenciasPorFecha.Add(a);
+                    }
+                }
+            }
+
+            return _asistenciasPorFecha;
         }
     }
 }

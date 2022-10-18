@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace EjercicioPresentismo.Dominio.Excepciones
 {
-    internal class AsistenciaExistenteEseDiaException
+    public class AsistenciaExistenteEseDiaException : Exception
     {
+        public AsistenciaExistenteEseDiaException() : base("ERROR! El día que intenta registrar la asistencia ya se encuentra registrado, intente nuevamente.")
+        {
+
+        }
     }
 }

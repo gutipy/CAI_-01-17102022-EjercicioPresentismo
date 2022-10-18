@@ -1,0 +1,6 @@
+D:\Documents\GitHub\CAI_-01-17102022-EjercicioPresentismo\EjercicioPresentismo\EjercicioPresentismo.Dominio\bin\Debug\EjercicioPresentismo.Dominio.dll
+D:\Documents\GitHub\CAI_-01-17102022-EjercicioPresentismo\EjercicioPresentismo\EjercicioPresentismo.Dominio\bin\Debug\EjercicioPresentismo.Dominio.pdb
+D:\Documents\GitHub\CAI_-01-17102022-EjercicioPresentismo\EjercicioPresentismo\EjercicioPresentismo.Dominio\obj\Debug\EjercicioPresentismo.Dominio.csproj.AssemblyReference.cache
+D:\Documents\GitHub\CAI_-01-17102022-EjercicioPresentismo\EjercicioPresentismo\EjercicioPresentismo.Dominio\obj\Debug\EjercicioPresentismo.Dominio.csproj.CoreCompileInputs.cache
+D:\Documents\GitHub\CAI_-01-17102022-EjercicioPresentismo\EjercicioPresentismo\EjercicioPresentismo.Dominio\obj\Debug\EjercicioPresentismo.Dominio.dll
+D:\Documents\GitHub\CAI_-01-17102022-EjercicioPresentismo\EjercicioPresentismo\EjercicioPresentismo.Dominio\obj\Debug\EjercicioPresentismo.Dominio.pdb

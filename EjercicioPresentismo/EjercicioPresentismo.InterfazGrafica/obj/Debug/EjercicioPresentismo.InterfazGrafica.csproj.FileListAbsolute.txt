@@ -1,0 +1,11 @@
+D:\Documents\GitHub\CAI_-01-17102022-EjercicioPresentismo\EjercicioPresentismo\EjercicioPresentismo.InterfazGrafica\bin\Debug\EjercicioPresentismo.InterfazGrafica.exe.config
+D:\Documents\GitHub\CAI_-01-17102022-EjercicioPresentismo\EjercicioPresentismo\EjercicioPresentismo.InterfazGrafica\bin\Debug\EjercicioPresentismo.InterfazGrafica.exe
+D:\Documents\GitHub\CAI_-01-17102022-EjercicioPresentismo\EjercicioPresentismo\EjercicioPresentismo.InterfazGrafica\bin\Debug\EjercicioPresentismo.InterfazGrafica.pdb
+D:\Documents\GitHub\CAI_-01-17102022-EjercicioPresentismo\EjercicioPresentismo\EjercicioPresentismo.InterfazGrafica\bin\Debug\EjercicioPresentismo.Dominio.dll
+D:\Documents\GitHub\CAI_-01-17102022-EjercicioPresentismo\EjercicioPresentismo\EjercicioPresentismo.InterfazGrafica\bin\Debug\EjercicioPresentismo.Dominio.pdb
+D:\Documents\GitHub\CAI_-01-17102022-EjercicioPresentismo\EjercicioPresentismo\EjercicioPresentismo.InterfazGrafica\obj\Debug\EjercicioPresentismo.InterfazGrafica.csproj.AssemblyReference.cache
+D:\Documents\GitHub\CAI_-01-17102022-EjercicioPresentismo\EjercicioPresentismo\EjercicioPresentismo.InterfazGrafica\obj\Debug\EjercicioPresentismo.InterfazGrafica.csproj.SuggestedBindingRedirects.cache
+D:\Documents\GitHub\CAI_-01-17102022-EjercicioPresentismo\EjercicioPresentismo\EjercicioPresentismo.InterfazGrafica\obj\Debug\EjercicioPresentismo.InterfazGrafica.csproj.CoreCompileInputs.cache
+D:\Documents\GitHub\CAI_-01-17102022-EjercicioPresentismo\EjercicioPresentismo\EjercicioPresentismo.InterfazGrafica\obj\Debug\EjercicioPresentismo.InterfazGrafica.csproj.CopyComplete
+D:\Documents\GitHub\CAI_-01-17102022-EjercicioPresentismo\EjercicioPresentismo\EjercicioPresentismo.InterfazGrafica\obj\Debug\EjercicioPresentismo.InterfazGrafica.exe
+D:\Documents\GitHub\CAI_-01-17102022-EjercicioPresentismo\EjercicioPresentismo\EjercicioPresentismo.InterfazGrafica\obj\Debug\EjercicioPresentismo.InterfazGrafica.pdb
