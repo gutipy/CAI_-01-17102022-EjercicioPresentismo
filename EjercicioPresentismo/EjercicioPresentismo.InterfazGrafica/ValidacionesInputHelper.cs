@@ -55,5 +55,25 @@ namespace EjercicioPresentismo.InterfazGrafica
 
             return flag;
         }
+
+        public static bool FuncionValidacionOpcionSoN(string opcion, string campo)
+        {
+            bool flag = false;
+
+            if (string.IsNullOrEmpty(opcion))
+            {
+                Console.WriteLine("ERROR! El campo " + campo + "no puede ser vacío, intente nuevamente.");
+            }
+            else if (opcion == "S" || opcion == "N")
+            {
+                flag = true;
+            }
+            else
+            {
+                Console.WriteLine("ERROR! La opción " + opcion + " no es una opción válida, intente nuevamente.");
+            }
+
+            return flag;
+        }
     }
 }

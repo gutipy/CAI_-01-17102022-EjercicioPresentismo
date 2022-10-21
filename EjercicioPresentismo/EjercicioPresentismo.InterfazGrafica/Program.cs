@@ -7,17 +7,21 @@ using System.Threading.Tasks;
 
 namespace EjercicioPresentismo.InterfazGrafica
 {
-    internal class Program
+    public class Program
     {
+        private static Presentismo _presentismo;
+
+        static Program()
+        {
+            _presentismo = new Presentismo();
+        }
         static void Main(string[] args)
         {
             //Declaración de variables
             bool _consolaActiva = true;
             string _opcionMenu = "";
 
-            Presentismo presentismo = new Presentismo();
-
-            Preceptor preceptorActivo = presentismo.GetPreceptorActivo();
+            Preceptor preceptorActivo = _presentismo.GetPreceptorActivo();
 
             try
             {
@@ -34,12 +38,12 @@ namespace EjercicioPresentismo.InterfazGrafica
                     {
                         case "1":
                             //Tomo la asistencia
-                            TomarA(presentismo, preceptorActivo);
+                            TomarA(preceptorActivo);
                             break;
 
                         case "2":
                             //Muestro la asistencia
-                            MostrarA(presentismo);
+                            MostrarA();
                             break;
 
                         case "3":
@@ -58,7 +62,7 @@ namespace EjercicioPresentismo.InterfazGrafica
             Console.ReadKey();
         }
 
-        public static void TomarA(Presentismo presentismo, Preceptor preceptor)
+        public static void TomarA(Preceptor preceptor)
         {
             //Declaración de variables
             string _fecha;
@@ -72,14 +76,14 @@ namespace EjercicioPresentismo.InterfazGrafica
                 //Permito al usuario ingresar la fecha a tomar la asistencia
                 do
                 {
-                    Console.WriteLine("Ingrese la fecha sobre la cual va a tomar asistencia:");
+                    Console.WriteLine("Ingrese la fecha (en formato yyyy-mm-dd) sobre la cual va a tomar asistencia:");
                     _fecha = Console.ReadLine();
                     _flag = ValidacionesInputHelper.FuncionValidacionFecha(ref _fecha, "Fecha de asistencia");
 
                 } while (_flag == false);
 
                 //Muestro el listado de alumnos donde se debe indicar solo si está presente
-                _alumnosPresentes = presentismo.GetListaAlumnos();
+                _alumnosPresentes = _presentismo.GetListaAlumnos();
 
                 foreach (Alumno a in _alumnosPresentes)
                 {
@@ -87,8 +91,14 @@ namespace EjercicioPresentismo.InterfazGrafica
                     {
                         bool resp = false;
 
-                        Console.WriteLine("{0} ({1}) está presente? S/N", a.Nombre, a.Registro);
-                        _estaPresente = Console.ReadLine();
+                        do
+                        {
+                            Console.WriteLine("{0} ({1}) está presente? S/N", a.Nombre, a.Registro);
+                            _estaPresente = Console.ReadLine();
+                            _flag = ValidacionesInputHelper.FuncionValidacionOpcionSoN(_estaPresente, "Estado alumno");
+
+                        } while (_flag == false);
+                        
 
                         if (_estaPresente == "S")
                         {
@@ -96,8 +106,7 @@ namespace EjercicioPresentismo.InterfazGrafica
                         }
 
                         Asistencia _asistenciaAAgregar = new Asistencia(_fecha, preceptor, a, resp);
-
-                        presentismo.Asistencias.Add(_asistenciaAAgregar);
+                        _asistencias.Add(_asistenciaAAgregar);
                     }
 
                     else
@@ -105,6 +114,8 @@ namespace EjercicioPresentismo.InterfazGrafica
                         Console.WriteLine("El alumno {0} ({1}) es oyente", a.Nombre, a.Registro);
                     }
                 }
+
+                _presentismo.AgregarAsistencia(_asistencias, _fecha);
 
                 Console.WriteLine("Presione Enter para elegir otra opción");
 
@@ -117,7 +128,7 @@ namespace EjercicioPresentismo.InterfazGrafica
             }
         }
 
-        public static void MostrarA(Presentismo presentismo)
+        public static void MostrarA()
         {
             //Declaración de variables
             string _fecha;
@@ -125,28 +136,37 @@ namespace EjercicioPresentismo.InterfazGrafica
             List<Asistencia> _asistenciasPorFecha = new List<Asistencia>();
             string _resultado = "";
 
-            //Permito al usuario ingresar la fecha a tomar la asistencia
-            do
+            try
             {
-                Console.WriteLine("Ingrese la fecha sobre la cual quiere ver la asistencia:");
-                _fecha = Console.ReadLine();
-                _flag = ValidacionesInputHelper.FuncionValidacionFecha(ref _fecha, "Fecha de asistencia");
+                //Permito al usuario ingresar la fecha a tomar la asistencia
+                do
+                {
+                    Console.WriteLine("Ingrese la fecha (en formato yyyy-mm-dd) sobre la cual quiere ver la asistencia:");
+                    _fecha = Console.ReadLine();
+                    _flag = ValidacionesInputHelper.FuncionValidacionFecha(ref _fecha, "Fecha de asistencia");
 
-            } while (_flag == false);
+                } while (_flag == false);
 
-            _asistenciasPorFecha = presentismo.GetAsistenciasPorFecha(_fecha);
+                _asistenciasPorFecha = _presentismo.GetAsistenciasPorFecha(_fecha);
 
-            foreach (Asistencia a in _asistenciasPorFecha)
+                foreach (Asistencia a in _asistenciasPorFecha)
+                {
+                    _resultado += Environment.NewLine + a.ToString();
+                }
+
+                Console.WriteLine("El listado de asistencia de alumnos para la fecha " + _fecha + " es: " + Environment.NewLine + _resultado);
+
+                Console.WriteLine("Presione Enter para elegir otra opción");
+
+                Console.ReadKey();
+                Console.Clear();
+            }
+            catch (Exception ex)
             {
-                _resultado += a.ToString();
+                Console.WriteLine(ex.Message);
             }
 
-            Console.WriteLine("El listado de asistencia de alumnos para la fecha " + _fecha + " es: " + Environment.NewLine + _resultado);
-
-            Console.WriteLine("Presione Enter para elegir otra opción");
-
-            Console.ReadKey();
-            Console.Clear();
+            
         }
 
         public static void Salir()

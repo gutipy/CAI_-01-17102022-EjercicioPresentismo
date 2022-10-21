@@ -14,7 +14,7 @@ namespace EjercicioPresentismo.Dominio.Entidades
         private List<Preceptor> _preceptores;
         private List<Alumno> _alumnos;
         private List<Asistencia> _asistencias;
-        private List<string> _fechas;
+        //private List<string> _fechas;
 
         //Constructores
         public Presentismo()
@@ -22,7 +22,7 @@ namespace EjercicioPresentismo.Dominio.Entidades
             _preceptores = new List<Preceptor>();
             _alumnos = new List<Alumno>();
             _asistencias = new List<Asistencia>();
-            _fechas = new List<string>();
+            //_fechas = new List<string>();
 
             _alumnos.Add(new AlumnoRegular("Carlos", "Juarez", 123, "cjua@gmail.com"));
             _alumnos.Add(new AlumnoRegular("Carla", "Jaime", 124, "cjai@gmail.com"));
@@ -36,20 +36,13 @@ namespace EjercicioPresentismo.Dominio.Entidades
         //Propiedades
         public List<Preceptor> Preceptores { get => _preceptores; }
         public List<Alumno> Alumnos { get => _alumnos; }
-        public List<Asistencia> Asistencias { get => _asistencias; set => _asistencias = value; }
-        public List<string> Fechas { get => _fechas; }
+        public List<Asistencia> Asistencias { get => _asistencias; }
+        //public List<string> Fechas { get => _fechas; }
 
         //Funciones-Métodos
         private bool AsistenciaRegistrada(string _fecha)
         {
-            if (_asistencias.Find(a => a.FechaReferencia == _fecha) == null)
-            {
-                throw new AsistenciaInconsistenteException();
-            }
-            else
-            {
-                return _asistencias.Any(reg => reg.FechaReferencia == _fecha);
-            }
+            return _asistencias.Any(registro => registro.FechaReferencia == _fecha);
         }
 
         private int GetCantidadAlumnosRegulares()
@@ -98,12 +91,12 @@ namespace EjercicioPresentismo.Dominio.Entidades
             {
                 throw new Exception("No hay asistencias para agregar");
             }
-    
+
             else if (_asistenciasAAgregar.Count != this.GetCantidadAlumnosRegulares())
             {
                 throw new AsistenciaInconsistenteException();
             }
-                
+
             else if (AsistenciaRegistrada(_asistenciasAAgregar.First().FechaReferencia))
             {
                 throw new AsistenciaExistenteEseDiaException();
@@ -112,8 +105,8 @@ namespace EjercicioPresentismo.Dominio.Entidades
             else
             {
                 _asistencias.AddRange(_asistenciasAAgregar);
-                _fechas.Add(_fecha);
-            }    
+                //_fechas.Add(_fecha);
+            }
         }
 
         public List<Asistencia> GetAsistenciasPorFecha(string _fecha)
@@ -133,7 +126,7 @@ namespace EjercicioPresentismo.Dominio.Entidades
 
             else
             {
-                foreach(Asistencia a in _asistencias)
+                foreach (Asistencia a in _asistencias)
                 {
                     if (a.FechaReferencia == _fecha)
                     {

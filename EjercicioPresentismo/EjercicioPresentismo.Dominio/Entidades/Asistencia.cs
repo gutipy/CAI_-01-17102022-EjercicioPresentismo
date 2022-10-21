@@ -19,7 +19,7 @@ namespace EjercicioPresentismo.Dominio.Entidades
         public Asistencia(string fechaReferencia, Preceptor preceptor, Alumno alumno, bool estaPresente)
         {
             _fechaReferencia = fechaReferencia;
-            _fechaHoraReal = DateTime.UtcNow;
+            _fechaHoraReal = DateTime.Now;
             _preceptor = preceptor;
             _alumno = alumno;
             _estaPresente = estaPresente;
@@ -34,8 +34,9 @@ namespace EjercicioPresentismo.Dominio.Entidades
             return string.Format(
                 "{0} {1} {2} está presente por {3} registrado el {4}",
                 _fechaReferencia,
-                _alumno.Display(),
+                _alumno,//.Display(),
                 _estaPresente ? "SÍ" : "NO",
+                _preceptor,
                 _fechaHoraReal.ToString()
                 )
                 ;
